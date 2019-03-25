@@ -6,7 +6,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import UpdateIcon from '@material-ui/icons/Update';
 
 const Row = (props) => {
-    
+        
     return (
         <TableRow>
             <TableCell component="th" scope="row">
@@ -14,6 +14,8 @@ const Row = (props) => {
             </TableCell>
             <TableCell align="left">{props.name}</TableCell>
             <TableCell align="left">{props.price}</TableCell>
+            <TableCell align="left">{props.description}</TableCell>
+            <TableCell align="left">{props.category.name}</TableCell>
             <TableCell align="left">{String(props.available)}</TableCell>
             <TableCell align="left">
                 <IconButton  aria-label="Delete"

@@ -28,9 +28,9 @@ class Productos extends Component {
     }
     render() {
         // console.log(this.props)
-        let { lista, loading, error, errorMsg } = this.props;
+        let { lista, loading, error, errorMsg, loadingB } = this.props;
 
-        if (loading) {
+        if (loading || loadingB) {
             return <Progress />
         }
 

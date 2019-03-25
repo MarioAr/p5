@@ -17,17 +17,17 @@ import {
     PROD_GET_MODIFY_ERROR
  } from '../../api/types';
 
-let id = 0;
-function createData(name, calories, fat, carbs, protein) {
-  id += 1;
-  return { id, name, calories, fat, carbs, protein };
-}
+// let id = 0;
+// function createData(name, calories, fat, carbs, protein) {
+//   id += 1;
+//   return { id, name, calories, fat, carbs, protein };
+// }
 const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
+    // createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+    // createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+    // createData('Eclair', 262, 16.0, 24, 6.0),
+    // createData('Cupcake', 305, 3.7, 67, 4.3),
+    // createData('Gingerbread', 356, 16.0, 49, 3.9),
   ]
 
 const defaultState = {
@@ -114,7 +114,8 @@ const reducer = (state = defaultState, action) => {
             return {
                 ...state,
                 loading: true,
-                error: false
+                error: false,
+                loadingB: true
             }
         case PROD_GET_UPDATE_START:
 
@@ -143,6 +144,7 @@ const reducer = (state = defaultState, action) => {
             return {
                 ...state,
                 loading: false,
+                loadingB: false,
                 error: false
             }
         case PROD_GET_MODIFY_ERROR:
@@ -150,6 +152,7 @@ const reducer = (state = defaultState, action) => {
             return {
                 ...state,
                 loading: false,
+                loadingB: false,
                 error: true
             }
         default:

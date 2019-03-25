@@ -6,13 +6,13 @@ import Row from './row';
 const Body = props => {
 
     let { lista, onDelete, onUpdate } = props;
-    // console.log(props)
+    
     
     return (
         <TableBody>
             {
                 lista.map( (item, i) => {
-
+                                        
                     return <Row key={i} {...item}
                     onDelete={onDelete}
                     onUpdate={onUpdate}

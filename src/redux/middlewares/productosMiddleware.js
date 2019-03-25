@@ -11,7 +11,8 @@ import {
     productoSuccess,
     productoError,
     productoModifyError,
-    productoModifySuccess
+    productoModifySuccess,
+    fetchProductos
 } from '../actions/productos';
 
 import { api } from '../../api/api';
@@ -25,6 +26,7 @@ const mid = state => next => async action => {
     if (type === PROD_FETCH_START) {
         try {
             let data = await api.productos.get();
+            // console.log(data)
             if (Array.isArray(data)) {
                 state.dispatch(productosSuccess(data))
             } else {
@@ -37,7 +39,7 @@ const mid = state => next => async action => {
         try {
             let data = await api.productos.getUno(action.payload);
             // console.log(data)
-            if (data.id) {
+            if (data) {
                 state.dispatch(productoSuccess(data))
             } else {
                 state.dispatch(productoError(data));    
@@ -61,7 +63,7 @@ const mid = state => next => async action => {
     } else if(type === PROD_GET_UPDATE_START) {
         
         try {
-            let data = await api.productos.setUno(action.payload);
+            let data = await api.productos.putUno(action.payload);
             // console.log(data)
             if (data.id) {
                 state.dispatch(productoModifySuccess(data))
@@ -78,6 +80,7 @@ const mid = state => next => async action => {
             
             if (!data.error) {
                 state.dispatch(productoModifySuccess(data))
+                state.dispatch(fetchProductos(data))
             } else {
                 state.dispatch(productoModifyError(data));    
             }

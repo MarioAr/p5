@@ -9,6 +9,8 @@ const headers = [
     'ID',
     'name',
     'price',
+    'description',
+    'category',
     'Available',
     'Modificar',
     'Borrar'
