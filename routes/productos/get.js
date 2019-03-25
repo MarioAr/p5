@@ -33,7 +33,7 @@ module.exports = (req, res, next) => {
     try {
         prod.findAll(busqueda)
         .then(data => {            
-            res.json({...data})
+            res.json(data)
         })
         .catch(e => {
             // console.log(e)
