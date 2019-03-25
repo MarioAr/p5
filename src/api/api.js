@@ -1,4 +1,5 @@
-const URL  = "http://my-json-server.typicode.com/MarioAr/data/";
+// const URL  = "http://my-json-server.typicode.com/MarioAr/data/";
+const URL  = "127.0.0.1:3007/";
 export const api = {
     productos: {
         get: () => {
